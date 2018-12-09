@@ -50,12 +50,21 @@ sdsd
 
 // The data for our dataset
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: [<?php
+                        while($row = $result->fetch_assoc()) {
+                            echo $row["id"]. ", ";
+                        }
+                     ?>
+            ],
             datasets: [{
                 label: "My First dataset",
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 25],
+                data: [<?php
+                        while($row = $result->fetch_assoc()) {
+                            echo $row["temperature"]. ", ";
+                        }
+                       ?>
             }]
         },
 
