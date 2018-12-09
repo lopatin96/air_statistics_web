@@ -60,9 +60,10 @@ sdsd
                         echo "0";
                      ?>
             ],
-            datasets: [{
-                label: "My First dataset",
-                borderColor: 'rgb(255, 99, 132)',
+            datasets: [
+                {
+                label: "Humidity",
+                borderColor: 'rgb(72, 135, 247)',
                 data: [<?php
                         $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
                         $result = $conn->query($sql);
@@ -73,7 +74,22 @@ sdsd
                         echo 0;
                        ?>
                 ]
-            }]
+                },
+                {
+                    label: "Temperature",
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [<?php
+                        $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
+                        $result = $conn->query($sql);
+
+                        while($row = $result->fetch_assoc()) {
+                            echo  $row['temperature'] . ", ";
+                        }
+                        echo 0;
+                        ?>
+                    ]
+                }
+                ]
         },
 
 // Configuration options go here
