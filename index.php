@@ -57,6 +57,7 @@ sdsd
                         while($row = $result->fetch_assoc()) {
                             echo "\"" . $row["datetime"] . "\",";
                         }
+                        echo "0";
                      ?>
             ],
             datasets: [{
@@ -70,6 +71,7 @@ sdsd
                         while($row = $result->fetch_assoc()) {
                             echo  $row['temperature'] . ", ";
                         }
+                        echo 0;
                        ?>
                 ]
             }]
