@@ -51,6 +51,9 @@ sdsd
 // The data for our dataset
         data: {
             labels: [<?php
+                        $sql = "SELECT * FROM air_statistics";
+                        $result = $conn->query($sql);
+
                         while($row = $result->fetch_assoc()) {
                             echo $row["id"]. ", ";
                         }
@@ -61,6 +64,9 @@ sdsd
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [<?php
+                        $sql = "SELECT * FROM air_statistics";
+                        $result = $conn->query($sql);
+
                         while($row = $result->fetch_assoc()) {
                             echo $row["temperature"]. ", ";
                         }
