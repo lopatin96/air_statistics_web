@@ -27,13 +27,13 @@ $data = $result->fetch_all();
 //    echo "0 results";
 //}
 
-echo var_dump($data);
+//echo var_dump($data);
 
 function arrayToJson($array, $column_name)
 {
     $result = array();
     foreach ($array as $key => $value)
-        array_push($result, $value->$column_name);
+        array_push($result, $value[1]);
     return json_encode($result);
 }
 ?>
