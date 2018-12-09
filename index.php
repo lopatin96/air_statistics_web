@@ -16,10 +16,11 @@ echo "Connected successfully";
 
 $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
 $result = $conn->query($sql);
+$data = $result->fetch_assoc();
 
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while($row = $data) {
         echo "id: " . $row["id"]. " - datetime: " . $row["datetime"]. ", t:" . $row["temperature"] . ", h:" . $row["humidity"] . "<br>";
     }
 } else {
@@ -42,23 +43,12 @@ if ($result->num_rows > 0) {
 <body>
 <canvas id="myChart"></canvas>
 <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var chart = new Chart(ctx, {
-// The type of chart we want to create
+    let ctx = document.getElementById("myChart").getContext('2d');
+    new Chart(ctx, {
         type: 'line',
 
-// The data for our dataset
         data: {
-            labels: [<?php
-                        $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
-                        $result = $conn->query($sql);
-
-                        while($row = $result->fetch_assoc()) {
-                            echo "\"" . $row["time"] . "\",";
-                        }
-                        echo "0";
-                     ?>
-            ],
+            labels: <?php echo json_encode($row['temperature'])?>,
             datasets: [
                 {
                 label: "Humidity",
@@ -90,8 +80,6 @@ if ($result->num_rows > 0) {
                 }
                 ]
         },
-
-// Configuration options go here
         options: {}
     });
 </script>
