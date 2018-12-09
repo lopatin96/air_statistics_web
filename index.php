@@ -2,7 +2,6 @@
 
 require 'vendor/autoload.php';
 
-
 use Medoo\Medoo;
 
 // Initialize
@@ -11,7 +10,8 @@ $database = new Medoo([
     'database_name' => 'phpmyadmin',
     'server' => '192.168.1.7',
     'username' => 'phpmyadmin',
-    'password' => '560492q'
+    'password' => '560492q',
+    'port' => 3306,
 ]);
 
 $data = $database->select('air_statistics', [
@@ -35,6 +35,7 @@ echo json_encode($data);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 <body>
+sdsd
 <canvas id="myChart"></canvas>
 <script>
     var ctx = document.getElementById("myChart").getContext('2d');
