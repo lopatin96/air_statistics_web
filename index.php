@@ -7,7 +7,13 @@ $port = 3306;
 
 $conn = new mysqli($host, $username, $passwd, $dbname, $port);
 
-$sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
+$sql = "SELECT datetime,
+          CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time,
+          AVG(`temperature`) as temperature, AVG(`humidity`) as humidity,
+          FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR))) / 1000) as timestamp
+        FROM `air_statistics`
+        WHERE datetime > DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR)
+        GROUP BY timestamp";
 $result = $conn->query($sql);
 $data = $result->fetch_all();
 
