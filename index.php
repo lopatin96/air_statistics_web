@@ -1,12 +1,5 @@
 <?php
-$host,
-		$username,
-		$passwd,
-		$dbname,
-		$port,
-		$socket
-
-$host = "192.168.1.7";
+$host = "127.0.0.1";
 $username = "phpmyadmin";
 $passwd = "560492q";
 $dbname = "phpmyadmin";
