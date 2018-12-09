@@ -8,11 +8,11 @@ $port = 3306;
 // Create connection
 $conn = new mysqli($host, $username, $passwd, $dbname, $port);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+//// Check connection
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//}
+//echo "Connected successfully";
 
 $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
 $result = $conn->query($sql);
@@ -48,7 +48,7 @@ $data = $result->fetch_assoc();
         type: 'line',
 
         data: {
-            labels: <?php echo json_encode($row['temperature'])?>,
+            labels: <?php echo $data; echo "11111"; echo json_encode($data['temperature']); ?>,
             datasets: [
                 {
                 label: "Humidity",
