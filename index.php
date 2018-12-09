@@ -29,11 +29,11 @@ $data = $result->fetch_all();
 
 //echo var_dump($data);
 
-function arrayToJson($array, $column_name)
+function arrayToJson($array, $column_id)
 {
     $result = array();
     foreach ($array as $key => $value)
-        array_push($result, $value[1]);
+        array_push($result, $value[$column_id]);
     return json_encode($result);
 }
 ?>
@@ -56,37 +56,19 @@ function arrayToJson($array, $column_name)
         type: 'line',
 
         data: {
-            labels: <?php echo arrayToJson($data, 'time'); ?>,
+            labels: <?php echo arrayToJson($data, 1); ?>,
             datasets: [
                 {
-                label: "Humidity",
-                borderColor: 'rgb(72, 135, 247)',
-                data: [<?php
-                        $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
-                        $result = $conn->query($sql);
-
-                        while($row = $result->fetch_assoc()) {
-                            echo  $row['humidity'] . ", ";
-                        }
-                        echo 0;
-                       ?>
-                ]
+                    label: "Humidity",
+                    borderColor: 'rgb(72, 135, 247)',
+                    data: <?php echo arrayToJson($data, 3); ?>
                 },
                 {
                     label: "Temperature",
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [<?php
-                        $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
-                        $result = $conn->query($sql);
-
-                        while($row = $result->fetch_assoc()) {
-                            echo  $row['temperature'] . ", ";
-                        }
-                        echo 0;
-                        ?>
-                    ]
+                    data: <?php echo arrayToJson($data, 2); ?>
                 }
-                ]
+            ]
         },
         options: {}
     });
