@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-$sql = "SELECT * FROM air_statistics";
+$sql = "SELECT * FROM air_statistics WHERE DATE(datetime) == DATE(GETDATE())";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
