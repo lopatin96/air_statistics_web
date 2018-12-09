@@ -48,7 +48,7 @@ $data = $result->fetch_assoc();
         type: 'line',
 
         data: {
-            labels: <?php echo $data; echo "11111"; echo json_encode($data['temperature']); ?>,
+            labels: <?php echo var_dump($data); echo "11111"; echo json_encode($data['temperature']); ?>,
             datasets: [
                 {
                 label: "Humidity",
