@@ -1,0 +1,13 @@
+{
+    "name": "vladyslavlopatin/air_statistics_web",
+    "authors": [
+        {
+            "name": "lopatin96",
+            "email": "ilopatin96@mail.ru"
+        }
+    ],
+    "require": {
+        "simplon/mysql": "*",
+        "catfan/medoo": "^1.6"
+    }
+}

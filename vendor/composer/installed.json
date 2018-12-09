@@ -1,0 +1,218 @@
+[
+    {
+        "name": "catfan/medoo",
+        "version": "v1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/catfan/Medoo.git",
+            "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/catfan/Medoo/zipball/53a02b300d673f716cb06bf0e24fd774ec53939f",
+            "reference": "53a02b300d673f716cb06bf0e24fd774ec53939f",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=5.4"
+        },
+        "suggest": {
+            "ext-pdo_dblib": "For MSSQL or Sybase database on Linux/UNIX platform",
+            "ext-pdo_mysql": "For MySQL or MariaDB database",
+            "ext-pdo_oci": "For Oracle database",
+            "ext-pdo_oci8": "For Oracle version 8 database",
+            "ext-pdo_pqsql": "For PostgreSQL database",
+            "ext-pdo_sqlite": "For SQLite database",
+            "ext-pdo_sqlsrv": "For MSSQL database"
+        },
+        "time": "2018-12-08T20:24:23+00:00",
+        "type": "framework",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Medoo\\": "/src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Angel Lai",
+                "email": "angel@catfan.me"
+            }
+        ],
+        "description": "The lightest PHP database framework to accelerate development",
+        "homepage": "https://medoo.in",
+        "keywords": [
+            "database",
+            "lightweight",
+            "mariadb",
+            "mssql",
+            "mysql",
+            "oracle",
+            "php framework",
+            "postgresql",
+            "sql",
+            "sqlite"
+        ]
+    },
+    {
+        "name": "dusank/knapsack",
+        "version": "10.0.0",
+        "version_normalized": "10.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/DusanKasan/Knapsack.git",
+            "reference": "cc29a0bbaadbfcb958b98aa4fd69a4ad7d173bba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/DusanKasan/Knapsack/zipball/cc29a0bbaadbfcb958b98aa4fd69a4ad7d173bba",
+            "reference": "cc29a0bbaadbfcb958b98aa4fd69a4ad7d173bba",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0"
+        },
+        "require-dev": {
+            "ciaranmcnulty/phpspec-typehintedmethods": "^1.0",
+            "henrikbjorn/phpspec-code-coverage": "^2.0",
+            "phpmd/phpmd": "^2.0",
+            "phpspec/phpspec": "^2.0",
+            "phpunit/phpunit": "^5.0",
+            "squizlabs/php_codesniffer": "^2.0",
+            "symfony/console": "^2.7"
+        },
+        "time": "2017-04-24T22:52:29+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/collection_functions.php",
+                "src/utility_functions.php"
+            ],
+            "psr-4": {
+                "DusanKasan\\Knapsack\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dusan Kasan",
+                "email": "dusan@kasan.sk",
+                "homepage": "http://kasan.sk",
+                "role": "Developer"
+            }
+        ],
+        "description": "Collection library for PHP",
+        "homepage": "https://github.com/DusanKasan/Knapsack",
+        "keywords": [
+            "collections",
+            "map",
+            "reduce",
+            "sequences"
+        ]
+    },
+    {
+        "name": "simplon/helper",
+        "version": "1.0.7",
+        "version_normalized": "1.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fightbulc/simplon_helper.git",
+            "reference": "50b9078a5c2fb35a57e9cdcf48bf60142a8964ee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fightbulc/simplon_helper/zipball/50b9078a5c2fb35a57e9cdcf48bf60142a8964ee",
+            "reference": "50b9078a5c2fb35a57e9cdcf48bf60142a8964ee",
+            "shasum": ""
+        },
+        "require": {
+            "dusank/knapsack": "^10.0",
+            "php": ">=7.1"
+        },
+        "time": "2017-08-16T11:03:50+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Simplon\\Helper\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tino Ehrich",
+                "email": "tino@bigpun.me",
+                "role": "developer"
+            }
+        ],
+        "description": "Helpers for recurring requirements",
+        "homepage": "https://github.com/fightbulc/simplon_helper",
+        "keywords": [
+            "casts",
+            "passwords",
+            "tokens"
+        ]
+    },
+    {
+        "name": "simplon/mysql",
+        "version": "2.2.10",
+        "version_normalized": "2.2.10.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fightbulc/simplon_mysql.git",
+            "reference": "21da390cb2b3846a2407a410486b4642501e3098"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fightbulc/simplon_mysql/zipball/21da390cb2b3846a2407a410486b4642501e3098",
+            "reference": "21da390cb2b3846a2407a410486b4642501e3098",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=7.1",
+            "simplon/helper": "^1.0"
+        },
+        "time": "2017-11-22T10:17:02+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Simplon\\Mysql\\": "src/",
+                "Test\\": "test/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tino Ehrich",
+                "email": "tino@bigpun.me",
+                "role": "developer"
+            }
+        ],
+        "description": "Simplon MySQL Library",
+        "homepage": "https://github.com/fightbulc/simplon_mysql",
+        "keywords": [
+            "db",
+            "manager",
+            "mysql",
+            "pdo"
+        ]
+    }
+]
