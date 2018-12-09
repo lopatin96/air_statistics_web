@@ -55,7 +55,7 @@ sdsd
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
-                            echo $row["datetime"]. ", ";
+                            echo "\"" . $row["datetime"] . "\",";
                         }
                      ?>
             ],
@@ -68,7 +68,7 @@ sdsd
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
-                            echo $row["temperature"]. ", ";
+                            echo  $row['temperature'] . ", ";
                         }
                        ?>
                 ]
