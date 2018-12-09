@@ -31,7 +31,7 @@ function arrayToJson($array, $column_name)
 {
     $result = array();
     foreach ($array as $key => $value)
-        array_push($result, $value[$column_name]);
+        array_push($result, $value->$column_name);
     return json_encode($result);
 }
 ?>
@@ -54,7 +54,7 @@ function arrayToJson($array, $column_name)
         type: 'line',
 
         data: {
-            labels: <?php echo arrayToJson($data, 'datetime'); ?>,
+            labels: <?php echo arrayToJson($data, 'time'); ?>,
             datasets: [
                 {
                 label: "Humidity",
