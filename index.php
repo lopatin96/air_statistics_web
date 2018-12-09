@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-$sql = "SELECT * FROM air_statistics WHERE DATE(datetime) == DATE(GETDATE())";
+$sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -51,7 +51,7 @@ sdsd
 // The data for our dataset
         data: {
             labels: [<?php
-                        $sql = "SELECT * FROM air_statistics";
+                        $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
@@ -65,7 +65,7 @@ sdsd
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [<?php
-                        $sql = "SELECT * FROM air_statistics";
+                        $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
