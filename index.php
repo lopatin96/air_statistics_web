@@ -27,6 +27,8 @@ $data = $result->fetch_all();
 //    echo "0 results";
 //}
 
+echo var_dump($data);
+
 function arrayToJson($array, $column_name)
 {
     $result = array();
