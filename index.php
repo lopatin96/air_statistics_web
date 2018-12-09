@@ -71,6 +71,7 @@ sdsd
                             echo $row["temperature"]. ", ";
                         }
                        ?>
+                ]
             }]
         },
 
