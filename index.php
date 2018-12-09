@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-$sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
+$sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -40,7 +40,6 @@ if ($result->num_rows > 0) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 <body>
-sdsd
 <canvas id="myChart"></canvas>
 <script>
     var ctx = document.getElementById("myChart").getContext('2d');
@@ -51,11 +50,11 @@ sdsd
 // The data for our dataset
         data: {
             labels: [<?php
-                        $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
+                        $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
-                            echo "\"" . $row["datetime"] . "\",";
+                            echo "\"" . $row["time"] . "\",";
                         }
                         echo "0";
                      ?>
@@ -65,7 +64,7 @@ sdsd
                 label: "Humidity",
                 borderColor: 'rgb(72, 135, 247)',
                 data: [<?php
-                        $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
+                        $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
@@ -79,7 +78,7 @@ sdsd
                     label: "Temperature",
                     borderColor: 'rgb(255, 99, 132)',
                     data: [<?php
-                        $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
+                        $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time, AVG(`temperature`) as temperature, AVG(`humidity`) as humidity, FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE(NOW()))) / 1000) as timestamp FROM `air_statistics` WHERE DATE(`datetime`) = DATE(NOW()) GROUP BY timestamp";
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
