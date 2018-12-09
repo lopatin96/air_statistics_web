@@ -55,7 +55,7 @@ sdsd
                         $result = $conn->query($sql);
 
                         while($row = $result->fetch_assoc()) {
-                            echo $row["id"]. ", ";
+                            echo $row["datetime"]. ", ";
                         }
                      ?>
             ],
