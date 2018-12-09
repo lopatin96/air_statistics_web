@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - datetime: " . $row["datetime"]. "<br>";
+        echo "id: " . $row["id"]. " - datetime: " . $row["datetime"]. ", t:" . $row["temperature"] . ", h:" . $row["humidity"] . "<br>";
     }
 } else {
     echo "0 results";
