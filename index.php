@@ -18,14 +18,14 @@ $sql = "SELECT datetime, CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, 
 $result = $conn->query($sql);
 $data = $result->fetch_assoc();
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $data) {
-        echo "id: " . $row["id"]. " - datetime: " . $row["datetime"]. ", t:" . $row["temperature"] . ", h:" . $row["humidity"] . "<br>";
-    }
-} else {
-    echo "0 results";
-}
+//if ($result->num_rows > 0) {
+//    // output data of each row
+//    while($row = $data) {
+//        echo "id: " . $row["id"]. " - datetime: " . $row["datetime"]. ", t:" . $row["temperature"] . ", h:" . $row["humidity"] . "<br>";
+//    }
+//} else {
+//    echo "0 results";
+//}
 
 
 ?>
