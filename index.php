@@ -62,7 +62,6 @@ sdsd
             ],
             datasets: [{
                 label: "My First dataset",
-                backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [<?php
                         $sql = "SELECT * FROM air_statistics WHERE DATE(`datetime`) = DATE(NOW())";
