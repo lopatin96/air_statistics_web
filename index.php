@@ -13,7 +13,7 @@ $host = "127.0.0.1";
 $username = "phpmyadmin";
 $passwd = "560492q";
 $dbname = "phpmyadmin";
-$port = 3306;
+//$port = 3306;
 
 $conn = new mysqli($host, $username, $passwd, $dbname, $port);
 
