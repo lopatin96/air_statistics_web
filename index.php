@@ -40,7 +40,7 @@ function arrayToJson($array, $column_id)
 <canvas id="myChart"></canvas>
 <script>
     let ctx = document.getElementById("myChart").getContext('2d');
-    var char = new Chart(ctx, {
+    var chart = new Chart(ctx, {
         type: 'line',
 
         data: {
