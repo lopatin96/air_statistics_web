@@ -1,4 +1,14 @@
 <?php
+
+
+//$pdo = new PDOConnector(
+//    '127.0.0.1', // server
+//    'phpmyadmin',      // user
+//    '560492q',      // password
+//    'phpmyadmin'   // database
+//);
+
+
 $host = "127.0.0.1";
 $username = "phpmyadmin";
 $passwd = "560492q";

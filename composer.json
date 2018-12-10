@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "simplon/mysql": "*",
+        "simplon/mysql": "^2.2",
         "catfan/medoo": "^1.6"
     }
 }

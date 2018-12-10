@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78ab350268625f2427f59f17dc383d9e",
+    "content-hash": "fd24c4e215f9a93a02087b1996fda036",
     "packages": [
         {
             "name": "catfan/medoo",
