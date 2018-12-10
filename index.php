@@ -40,7 +40,7 @@ function arrayToJson($array, $column_id)
 <canvas id="myChart"></canvas>
 <script>
     let ctx = document.getElementById("myChart").getContext('2d');
-    new Chart(ctx, {
+    var char = new Chart(ctx, {
         type: 'line',
 
         data: {
@@ -60,6 +60,10 @@ function arrayToJson($array, $column_id)
         },
         options: {}
     });
+
+    setInterval(function () {
+        chart.data.datasets = [];
+    }, 3000);
 </script>
 </body>
 </html>
