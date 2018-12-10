@@ -63,6 +63,7 @@ function arrayToJson($array, $column_id)
 
     setInterval(function () {
         chart.data.datasets = [];
+        chart.update();
     }, 3000);
 </script>
 </body>
