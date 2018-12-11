@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 use Simplon\Mysql\PDOConnector;
+use Simplon\Mysql\Mysql;
 
 $pdo = new PDOConnector(
     '127.0.0.1',
@@ -9,6 +10,15 @@ $pdo = new PDOConnector(
     'phpmyadmin'
 );
 
+$dbConn = new Mysql($pdoConn);
+$result = $dbConn->fetchRowMany("SELECT datetime,
+//          CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time,
+//          AVG(`temperature`) as temperature, AVG(`humidity`) as humidity,
+//          FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR))) / 1000) as timestamp
+//        FROM `air_statistics`
+//        WHERE datetime > DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR)
+//        GROUP BY timestamp");
+
 
 //$host = "127.0.0.1";
 //$username = "phpmyadmin";
@@ -16,17 +26,17 @@ $pdo = new PDOConnector(
 //$dbname = "phpmyadmin";
 //$port = 3306;
 
-$conn = new mysqli($host, $username, $passwd, $dbname, $port);
-
-$sql = "SELECT datetime,
-          CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time,
-          AVG(`temperature`) as temperature, AVG(`humidity`) as humidity,
-          FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR))) / 1000) as timestamp
-        FROM `air_statistics`
-        WHERE datetime > DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR)
-        GROUP BY timestamp";
-$result = $conn->query($sql);
-$data = $result->fetch_all();
+//$conn = new mysqli($host, $username, $passwd, $dbname, $port);
+//
+//$sql = "SELECT datetime,
+//          CONCAT(HOUR(datetime), ':', IF (MINUTE(datetime) < 10, '00', FLOOR(MINUTE(datetime)/10) * 10)) as time,
+//          AVG(`temperature`) as temperature, AVG(`humidity`) as humidity,
+//          FLOOR((TIMESTAMP(datetime) - TIMESTAMP(DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR))) / 1000) as timestamp
+//        FROM `air_statistics`
+//        WHERE datetime > DATE_ADD(DATE(NOW()), INTERVAL -24 HOUR)
+//        GROUP BY timestamp";
+//$result = $conn->query($sql);
+//$data = $result->fetch_all();
 
 function arrayToJson($array, $column_id)
 {
